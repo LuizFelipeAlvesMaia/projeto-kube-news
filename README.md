@@ -13,3 +13,13 @@ DB_USERNAME => Usuário do banco de dados.
 DB_PASSWORD => Senha do usuário do banco de dados.
 
 DB_HOST => Endereço do banco de dados.
+
+### Informações importantes
+Esse projeto entraga uma aplicação web usando NODE.JS, usando uma iamgem Docker desenvolvida no arquivo Dockerfile no reposiitorio. Imagem também está disponivel [aqui](https://hub.docker.com/r/luiz117/projeto-kube-news)
+
+Esse projeto utiliza as seguintes tecnologias para ser utilizado em sua máquina
+
+* Docker
+* Kubernetes
+* Mini Kube
+* K3D
