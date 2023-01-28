@@ -56,19 +56,19 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       containers:
-        - name: web
-          image: luiz117/projeto-kube-news:{{TAG}}
-          ports:
-            - containerPort: 8080
-          env:
-            - name: DB_DATABASE
-              value: "kubenews"
-            - name: DB_USERNAME
-              value: "kubenews"
-            - name: DB_PASSWORD
-              value: "Pg#123"
-            - name: DB_HOST
-              value: "postgre"
+       - name: web  
+         image: luiz117/projeto-kube-news:{{TAG}}
+         ports:
+         - containerPort: 8080
+         env:
+         - name: DB_DATABASE
+           value: "kubenews"
+         - name: DB_USERNAME
+           value: "kubenews"             
+         - name: DB_PASSWORD
+           value: "Pg#123"
+         - name: DB_HOST
+           value: "postgre"
 
 ---
 apiVersion: v1
