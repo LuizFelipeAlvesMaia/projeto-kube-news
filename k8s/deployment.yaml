@@ -12,31 +12,29 @@ spec:
         app: postgre
     spec:
       containers:
-      - name: postgre
-        image: postgres:15.0
-        ports: 
-        - containerPort: 5432
-        env:
-          - name: POSTGRES_DB
-            value: "kubenews"
-          - name: POSTGRES_USER
-            value: "kubenews"
-          - name: POSTGRES_PASSWORD
-            value: "Pg#123"
-        
+        - name: postgre
+          image: postgres:15.0
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: "kubenews"
+            - name: POSTGRES_USER
+              value: "kubenews"
+            - name: POSTGRES_PASSWORD
+              value: "Pg#123"
 
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: postgre
-spec: 
-  selector: 
+spec:
+  selector:
     app: postgre
-  ports: 
+  ports:
     - port: 5432
   type: ClusterIP
-
 
 ---
 apiVersion: apps/v1
@@ -58,32 +56,29 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       containers:
-      - name: web
-        image: luiz117/projeto-kube-news:{{TAG}}
-        ports: 
-        - containerPort: 8080
-        env:
-          - name: DB_DATABASE
-            value: "kubenews"
-          - name: DB_USERNAME
-            value: "kubenews"
-          - name: DB_PASSWORD
-            value: "Pg#123"
-          - name: DB_HOST
-            value: "postgre"
-       
+        - name: web
+          image: luiz117/projeto-kube-news:{{TAG}}
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_DATABASE
+              value: "kubenews"
+            - name: DB_USERNAME
+              value: "kubenews"
+            - name: DB_PASSWORD
+              value: "Pg#123"
+            - name: DB_HOST
+              value: "postgre"
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
   name: web
 spec:
   selector:
-      app: web
+    app: web
   ports:
     - port: 80
       targetPort: 8080
   type: LoadBalancer
-       
