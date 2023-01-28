@@ -23,3 +23,6 @@ Esse projeto utiliza as seguintes tecnologias para ser utilizado em sua máquina
 * Kubernetes
 * Mini Kube
 * K3D
+
+### Esse projeto utiliza pipeline CI / CD com Jenkins
+Caso queira ver mais sobre nossa pipeline, nosso arquivo Jenkins se econtra no repositorio acima. 
