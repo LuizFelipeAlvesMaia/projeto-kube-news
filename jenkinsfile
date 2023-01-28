@@ -3,10 +3,14 @@ pipline{
 
 
     stages{
-        stages('Build Docker Image'){
+
+        stage('Build Docker Image'){
+
             steps{
+
                 script{
-                    dockerapp = docker.build("luiz177/projeto-kube-news:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
+                    
+                    dockerapp = docker.build("luiz117/projeto-kube-news:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
                 }
             }
         }
